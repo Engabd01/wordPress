@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator Form</title>
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Use the Inter font family */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+
+    <div class="w-full max-w-md mx-auto bg-white rounded-xl shadow-md p-8">
+        <h1 class="text-2xl font-bold text-center text-gray-800 mb-6">Simple Calculator</h1>
+
+        <!-- The form will send a POST request to the /recipe route, which matches your Express setup -->
+        <form action="/recipe" method="POST" class="space-y-6">
+
+            <!-- Input for the first number -->
+            <div>
+                <label for="value1" class="block text-sm font-medium text-gray-700 mb-1">First Number</label>
+                <input type="number" id="value1" name="value1" required
+                       class="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition duration-150 ease-in-out"
+                       placeholder="Enter first value">
+            </div>
+
+            <!-- Input for the second number -->
+            <div>
+                <label for="value2" class="block text-sm font-medium text-gray-700 mb-1">Second Number</label>
+                <input type="number" id="value2" name="value2" required
+                       class="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition duration-150 ease-in-out"
+                       placeholder="Enter second value">
+            </div>
+
+            <!-- Radio buttons for the operation -->
+            <fieldset>
+                <legend class="block text-sm font-medium text-gray-700 mb-2">Operation</legend>
+                <div class="grid grid-cols-2 gap-4">
+                    <!-- Addition -->
+                    <div class="flex items-center">
+                        <input id="add" name="operation" type="radio" value="add" checked
+                               class="h-4 w-4 text-indigo-600 border-gray-300 focus:ring-indigo-500">
+                        <label for="add" class="ml-3 block text-sm font-medium text-gray-700">Addition (+)</label>
+                    </div>
+                    <!-- Subtraction -->
+                    <div class="flex items-center">
+                        <input id="subtract" name="operation" type="radio" value="subtract"
+                               class="h-4 w-4 text-indigo-600 border-gray-300 focus:ring-indigo-500">
+                        <label for="subtract" class="ml-3 block text-sm font-medium text-gray-700">Subtraction (-)</label>
+                    </div>
+                    <!-- Multiplication -->
+                    <div class="flex items-center">
+                        <input id="multiply" name="operation" type="radio" value="multiply"
+                               class="h-4 w-4 text-indigo-600 border-gray-300 focus:ring-indigo-500">
+                        <label for="multiply" class="ml-3 block text-sm font-medium text-gray-700">Multiplication (*)</label>
+                    </div>
+                    <!-- Division -->
+                    <div class="flex items-center">
+                        <input id="divide" name="operation" type="radio" value="divide"
+                               class="h-4 w-4 text-indigo-600 border-gray-300 focus:ring-indigo-500">
+                        <label for="divide" class="ml-3 block text-sm font-medium text-gray-700">Division (/)</label>
+                    </div>
+                </div>
+            </fieldset>
+
+            <!-- Result Display Area -->
+            <div class="mt-6 p-4 bg-gray-50 rounded-lg border border-gray-200 text-center">
+                <h2 class="text-lg font-semibold text-gray-800">Result</h2>
+                <p class="text-3xl font-bold text-indigo-600 mt-2" id="result">
+                    <!-- The result from your backend will be displayed here -->
+                    <!-- For example, using EJS: -->
+                     <%= result %>
+                </p>
+            </div>
+
+            <!-- Submit Button -->
+            <div>
+                <button type="submit"
+                        class="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition duration-150 ease-in-out">
+                    Calculate
+                </button>
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>
